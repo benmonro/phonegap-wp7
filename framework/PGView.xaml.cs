@@ -85,7 +85,23 @@ namespace WP7GapClassLib
             this.nativeExecution = new NativeExecution(ref this.GapBrowser);
         }
 
-        
+        public string StartPage
+        {
+            get
+            {
+                return (string) this.GetValue(StartPageProperty);
+            } 
+
+            set
+            {
+                this.SetValue(StartPageProperty, value);
+            }
+        }
+
+        public static readonly DependencyProperty StartPageProperty =
+            DependencyProperty.Register("StartPage", typeof (string), typeof (PGView),
+                                        new PropertyMetadata("index.html"));
+
 
         void AppClosing(object sender, ClosingEventArgs e)
         {
@@ -213,7 +229,7 @@ namespace WP7GapClassLib
                 // todo: this should be a start page param passed in via a getter/setter
                 // aka StartPage
 
-                Uri indexUri = new Uri("www/index.html", UriKind.Relative);
+                Uri indexUri = new Uri("www/" + StartPage, UriKind.Relative);
                 this.GapBrowser.Navigate(indexUri);
 
                 this.IsBrowserInitialized = true;
