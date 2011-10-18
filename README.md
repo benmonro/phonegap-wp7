@@ -1,4 +1,4 @@
-PhoneGap/WP7 Mango for Neudesic Pulse
+PhoneGap/WP7 Mango
 ===
 
 PhoneGap WP7 is a .net application library that lets you create PhoneGap applications targeting WP7 Mango devices.
